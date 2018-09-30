@@ -9,6 +9,8 @@ Leetcode problems solutions.
 
 - [Leetcode11 Container With Most Water](https://github.com/SYSUcarey/leetcode/tree/master/Leetcode11_Container_With_Most_Water)
 
+- [Leetcode15 3Sum](https://github.com/SYSUcarey/leetcode/tree/master/Leetcode15_3Sum)
+
 - [Leetcode16 3Sum Closest](https://github.com/SYSUcarey/leetcode/tree/master/Leetcode16_3Sum_Closest)
 
 - [Leetcode35 Search Insert Position](https://github.com/SYSUcarey/leetcode/tree/master/Leetcode35_Search_Insert_Position)
