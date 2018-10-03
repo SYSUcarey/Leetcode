@@ -17,6 +17,8 @@ Leetcode problems solutions.
 
 - [Leetcode66 Plus One](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode66_Plus_One)
 
+- [Leetcode74 Search a 2D Matrix](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode74_Search_a_2D_Matrix)
+
 - [Leetcode119 Pascal's Triangle II](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode119_Pascal's_Triangle_II)
 
 - [Leetcode167 Two Sum II Input array is sorted](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode167_Two_Sum_II_Input_array_is_sorted)
