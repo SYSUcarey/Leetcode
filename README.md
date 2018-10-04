@@ -13,6 +13,8 @@ Leetcode problems solutions.
 
 - [Leetcode16 3Sum Closest](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode16_3Sum_Closest)
 
+- [Leetcode18 4Sum](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode18_4Sum)
+
 - [Leetcode35 Search Insert Position](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode35_Search_Insert_Position)
 
 - [Leetcode66 Plus One](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode66_Plus_One)
