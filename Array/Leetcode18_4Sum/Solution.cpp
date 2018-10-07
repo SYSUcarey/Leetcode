@@ -26,6 +26,7 @@ int main(){
 
 vector<vector<int>> fourSum(vector<int>& nums, int target) {
 	//sorted the array
+	sort(nums.begin(), nums.end());
 	//determine the smallest and largest
 	vector<vector<int>> answer;
 	int smallest, head, tail, largest;
