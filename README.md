@@ -17,6 +17,8 @@ Leetcode problems solutions.
 
 - [Leetcode35 Search Insert Position](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode35_Search_Insert_Position)
 
+- [Leetcode56 Merge Intervals](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode56_Merge_Intervals)
+
 - [Leetcode66 Plus One](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode66_Plus_One)
 
 - [Leetcode74 Search a 2D Matrix](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode74_Search_a_2D_Matrix)
