@@ -15,6 +15,8 @@ Leetcode problems solutions.
 
 - [Leetcode18 4Sum](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode18_4Sum)
 
+- [Leetcode 31 Next Permutation](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode31_Next_Permutation)
+
 - [Leetcode35 Search Insert Position](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode35_Search_Insert_Position)
 
 - [Leetcode56 Merge Intervals](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode56_Merge_Intervals)
