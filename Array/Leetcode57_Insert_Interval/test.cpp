@@ -8,7 +8,7 @@ int main(){
 	int data[5][2] = {{1, 2}, {5, 7}, {9, 11}, {13, 17}, {18, 26}};
 	for(int i = 0; i < 5; i++) 
 		intervals.push_back(Interval(data[i][0], data[i][1]));
-	Interval newInterval = Interval(2, 29);
+	Interval newInterval = Interval(2, 12);
 	cout << "Input : " << endl << "intervals: ";
 	for(unsigned int i = 0; i < intervals.size(); i++) 
 		cout << "[" <<  intervals[i].start << ", " << intervals[i].end << "]  ";
