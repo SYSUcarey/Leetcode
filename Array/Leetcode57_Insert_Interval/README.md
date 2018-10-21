@@ -41,7 +41,11 @@ tags : [ "Leetcode" ]
 
 **分析：**
 
-- todo
+- 这都题其实不难，虽然不知道为什么只有30-%的Acc。画个图我们可以比较直观地看出这道题让我们想做的东西。
+
+- 主要还是要找出插入区间**newInterval**最小值、最大值是在区间数组**intervals**的哪个位置，然后将中间的区间全部合并掉就好了。由于区间数组已经是按照最小值排好序的，那么这道题看上去应该是可以在**O(n)**的复杂度内解决的，从小到大遍历区间数组，比较与插入区间是否有交集，没有的话就直接添加到答案数组；有交集的话就计算出合并后的区间，添加到答案数组中；然后再把后面的也是无交的集区间添加到答案数组中去，返回答案数组。
+
+  
 
 ***
 
@@ -49,8 +53,22 @@ tags : [ "Leetcode" ]
 
 **Solution：**
 
-- todo
+- 基本思路应该是从小到大地遍历循环区间数组intervals，比较**newInterval.start**和**intervals[i].end**的大小，判断两区间是否存在交集：
+  - **newInterval.start > intervals[i].end**，说明**newInterval**与**intervals[i]**是没有交集的，直接**push_back(intervals[i])**。
 
+  - **newInterval.start <= intervals[i].end**，说明**newInterval**与**intervals[i]**是有交集的，我们得找出合并后的区间**temp**的**start**值和**end**值。
+    - **temp.start**当然是**newInterval**与**intervals[i]**中**start**的较小值。
+    - **temp.end**当然是再继续增加**i**，找出最后一个与**newInterval**有交集的区间**intervals[i]**，此时**temp.end**当然是**newInterval**与**intervals[i]**中**end**的较大值。
+
+  - 找出合并区间后，再把之后的区间也**push_back**进去即可。
+
+    
+
+- 另外要注意空数组的情况，注意插入区间比所有数组中区间都要小、大的情况。
+
+  
+
+- 算法复杂度**O(n)**。
 
 ------
 
