@@ -31,5 +31,7 @@ Leetcode problems solutions.
 
 - [Leetcode167 Two Sum II Input array is sorted](https://github.com/SYSUcarey/leetcode/tree/master/Array/Leetcode167_Two_Sum_II_Input_array_is_sorted)
 
+- [Leetcode581 Shortest Unsorted Continuous Subarray](https://github.com/SYSUcarey/Leetcode/tree/master/Array/Leetcode581_Shortest_Unsorted_Continuous_Subarray)
+
   
 
