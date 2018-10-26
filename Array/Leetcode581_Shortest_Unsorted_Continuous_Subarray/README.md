@@ -1,6 +1,6 @@
 ---
 title: "Leetcode581 Shortest Unsorted Continuous Subarray"
-date: 2018-10-23T18:50:53+08:00
+date: 2018-10-26T14:50:53+08:00
 slug : "Leetcode581 Shortest Unsorted Continuous Subarray"
 categories : [ "Leetcode" ]
 tags : [ "Leetcode" ]
@@ -37,7 +37,8 @@ tags : [ "Leetcode" ]
 
 **分析：**
 
-- todo
+- 找到最短的要排序的连续项的数量，使得排序这些项后，整个数组是升序的。
+- 那么我们考虑的很简单，我们干脆先复制数组，然后先进行排序。然后用两个指针**begin**和**end**从头和尾向中间逼近，找到第一项和排序后的数组不一样的，那么这时候**Output=end-begin+1**。
 
 ***
 
@@ -45,13 +46,16 @@ tags : [ "Leetcode" ]
 
 **Solution：**
 
-- todo
+- 根据分析里的思路，首先考虑数组`SIZE == 0`和 `SIZE == 1`的情况。
+- 克隆数组**sortArray**，然后用**sort**函数排序**sortArray**数组。
+- 定义两个指针**begin**和**end**从两头向中间逼近，找出第一项和排序数组不一样的。这里只要注意好一些边界细节就没问题了。
+- **算法复杂度O(n logn)**
 
 ------
 
 ## code(c++)
 
-**solution1(32ms)：** 
+**solution(32ms)：** 
 
 ```c++
 class Solution {
@@ -75,9 +79,7 @@ public:
 };
 ```
 
-**Solution2(8ms)**
 
-```c++
 
-```
+
 
