@@ -17,5 +17,6 @@ int main(){
 	Solution mySolution = Solution();
 	int answer = mySolution.largestRectangleArea(heights);
 	cout << answer << endl;
+	
 }
 
