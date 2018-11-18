@@ -1,7 +1,7 @@
 ---
-title: "Leetcode84 Largest Rectangle in Histogram"
-date: 2018-11-11T20:50:53+08:00
-slug : "Leetcode84 Largest Rectangle in Histogram"
+title: "Leetcode 54 Spiral Matrix"
+date: 2018-11-18T22:50:53+08:00
+slug : "Leetcode 54 Spiral Matrix"
 categories : [ "Leetcode" ]
 tags : [ "Leetcode" ]
 ---
@@ -10,30 +10,41 @@ tags : [ "Leetcode" ]
 
 - 链接：
 
-  [Leetcode84 Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
+  [Leetcode 54 Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
+
+- 难度：
+
+  **Difficulty: Medium** 
+
+  **Acceptance: 28.7% **
 
 - 概述：
 
-  1. Given *n* non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+  Given a matrix of *m* x *n* elements (*m* rows, *n* columns), return all elements of the matrix in spiral order.
 
-      
+  **Example 1:**
 
-     ![img](https://assets.leetcode.com/uploads/2018/10/12/histogram.png)
-     Above is a histogram where width of each bar is 1, given height = `[2,1,5,6,2,3]`.
+  ```
+  Input:
+  [
+   [ 1, 2, 3 ],
+   [ 4, 5, 6 ],
+   [ 7, 8, 9 ]
+  ]
+  Output: [1,2,3,6,9,8,7,4,5]
+  ```
 
-      
+  **Example 2:**
 
-     ![img](https://assets.leetcode.com/uploads/2018/10/12/histogram_area.png)
-     The largest rectangle is shown in the shaded area, which has area = `10` unit.
-
-      
-
-     **Example:**
-
-     ```
-     Input: [2,1,5,6,2,3]
-     Output: 10
-     ```
+  ```
+  Input:
+  [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9,10,11,12]
+  ]
+  Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+  ```
 
 ***
 
@@ -41,16 +52,13 @@ tags : [ "Leetcode" ]
 
 **分析1：**
 
-- 这道题乍一看跟[Leetcode 11 container with most water](https://leetcode.com/problems/container-with-most-water/description/)很像，都是求面积最大，不同的是，前者形成的长方形的高是由两端较小的数决定的，而本道题形成的长方形的高是由两端以及中间所有数的最小值决定的。
-- 但正因为高的取决不同，这道题就不能像**Leetcode 11**那样从两端向中间逼近，因为我们可以找出反例，我们总丢弃矮的那边向中间缩进是不正确的。
+- 这道题让我们从外到内，顺时针遍历一个二维数组，就像螺旋一样从外走到里，直到剩下单行或者单列（因为这可以不是一个正方形，螺旋到最后不一定是一个点）。
+- 那么我们可以考虑一层一层地去遍历，先把最外面那一层的数字给遍历掉，去掉这些数字后，我们发现剩下的是一个更小的长方形，我们可以一样的方法去解决这个更小的长方形。
 
-**分析2：**
-
-- 那么或许我们可以从最矮的开始下手，将数组分成两部分。最矮的数左边和最矮的数右边，然后最大的长方形面积就必然来自以下三个部分之一：
-  - 要么来自于左半部中的最大长方形面积
-  - 要么来自于右半部中的最大长方形面积
-  - 要么来自高为这个最矮数，长我们取最大的长方形的面积
-- 按照这个想法我们可以用递归去实现这个算法
+- 那么对于一个m*n的数组矩阵，如果以左上角作为起点的话，遍历矩阵的最外层时，我们可以容易地发现：
+  - 先是向右遍历n-1步，然后向下遍历m-1步，然后向左遍历n-1步，然后向上遍历m-2步，回到下一层起点的左边。
+  - 如果m=1或者n=1的话，就相当于只有一行或一列，这样就只存在一次向右或向下的遍历，遍历n步或m步。
+- 为了更好地进行下一层的遍历，我们不如将起点设置为左上角的左边一格，那样每次遍历完最外层相当于又回到了下一次遍历的起点。这样的话，就是向右遍历n步，向下m-1步，向左n-1步，向上遍历m-2步。
 
 ***
 
@@ -58,12 +66,16 @@ tags : [ "Leetcode" ]
 
 ### **Solution**
 
-- `int getMaxArea(int head, int tail, vector<int>& heights)`是辅助函数，用来获取**heights[head, tail]**中的最大长方形的面积，这样就方便我们用这个函数进行递归实现算法。这个函数的实现就基于上面分析2中所说的，找到最小数，然后分成三部分，递归下去。
-- `int getMinHeight(int head, int tail, vector<int>& heights, int& index)`是另外一个函数，用来获取**heights[head, tail]**中的最小的数返回，并且获得这个最小的数的**index**，这个函数的实现就很简单，从**head**到**tail**遍历一遍即可。
-- 那么最后题目所要求的解就是`getMaxArea(0, heights.size()-1,  heights);`
-- 算法复杂度：最好**O(n·logn)**，最坏**O(n^2)**。
+- 根据分析1中的思路，获取矩阵的 row 和 col，设置起点 (x,y) = (0, -1)
+- 当 `row > 0 && col > 0`时，我们进行循环最外层的遍历：
+  - 从起点往右移动 col 步；
+  - 往下移动 row -1 步（如果 row = 1，只有一行，就相当于没移动）
+  - 如果 row > 1，多于一行，往左移动 col - 1 步
+  - 如果 col > 1，多于一列，往上移动 row-2 步
+- 遍历完最外层的循环，`row -= 2，col -= 2`。矩阵的宽高变化了，进行下一层循环。
+- 根据上述的算法，算法复杂度为**O(m·n)**。 
 
-### **code(c++)**
+### **code(c++) ** 
 
 ```c++
 #include <vector>
@@ -71,33 +83,48 @@ using namespace std;
 
 class Solution {
 public:
-    int largestRectangleArea(vector<int>& heights) {
-    	return getMaxArea(0, heights.size()-1, heights);
+    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int> answer;
+        // empty array
+        int row = matrix.size();
+        if(row == 0) return answer;
+        int col = matrix[0].size();
+        if(col == 0) return answer;
 
-    }
-    int getMaxArea(int head, int tail, vector<int>& heights) {
-    	if(tail < head) return 0;
-    	if(tail == head) return heights[head];
-    	// get the smallest height in heights[head...tail]
-    	int smallest_index;
-    	int smallest = getMinHeight(head, tail, heights, smallest_index);
-    	// MaxArea may be the maximun of the following three part
-    	int area1 = getMaxArea(head, smallest_index-1, heights);
-    	int area2 = getMaxArea(smallest_index+1, tail, heights);
-    	int area3 = smallest * (tail - head + 1);
-    	int MaxArea = (area1 > area2) ? area1 : area2;
-    	return (MaxArea > area3) ? MaxArea : area3;
-    }
+        // (x,y) is on the left side of the start point
+        int x = 0, y = -1;
+        while(row > 0 && col > 0) {
+            // move right col times
+            for(int i = 1; i <= col; i++) {
+                y++;
+                answer.push_back(matrix[x][y]);
+            }
+            
+            // move down (row-1) times
+            for(int i = 1; i <= row-1; i++) {
+                x++;
+                answer.push_back(matrix[x][y]);
+            }
 
-    int getMinHeight(int head, int tail, vector<int>& heights, int& index) {
-    	int answer = heights[head];
-    	index = head;
-    	for(int i = head+1; i <= tail; i++) {
-    		if(heights[i] < answer) {
-    			answer = heights[i];
-    			index = i;    		}
-    	}
-    	return answer;
+            // move left (col-1) times if row > 1
+            if(row > 1) {
+                for(int i = 1; i <= col-1; i++) {
+                    y--;
+                    answer.push_back(matrix[x][y]);
+                }
+            }
+
+            //move up (row-2) times if col > 1
+            if(col > 1) {
+                for(int i = 1; i <= row-2; i++) {
+                    x--;
+                    answer.push_back(matrix[x][y]);
+                }
+            }
+            row -= 2;
+            col -= 2;
+        }
+        return answer;
     }
 };
 ```
