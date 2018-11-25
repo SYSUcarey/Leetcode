@@ -5,6 +5,16 @@ slug : "Leetcode41 First Missing Positive"
 categories : [ "Leetcode" ]
 tags : [ "Leetcode" ]
 ---
+# Table of Contents
+
+- [题目](#%E9%A2%98%E7%9B%AE)
+- [思考](#%E6%80%9D%E8%80%83)
+- [解法](#%E8%A7%A3%E6%B3%95)
+  - [<strong>Solution</strong>](#solution)
+  - [<strong>code c\+\+</strong>](#code-c)
+
+Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
+
 ## 题目
 
 - 链接：
