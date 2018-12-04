@@ -1,6 +1,6 @@
 ---
 title: "Leetcode72 Edit Distance"
-date: 2018-12-02T14:50:53+08:00
+date: 2018-12-02T23:50:53+08:00
 slug : "Leetcode72 Edit Distance"
 categories : [ "Leetcode" ]
 tags : [ "Leetcode" ]
@@ -91,15 +91,9 @@ Created by [gh-md-toc](https://github.com/ekalinin/github-markdown-toc.go)
 
 - 状态转移方程：
 
-$$
-d[i,j] = min
-\begin{cases}
-d[i-1][j-1],\quad if \; str1[i-1] == str2[j-1] \\
-d[i-1][j-1]+1, \quad if  \;  str1[i-1] != str2[j-1] \\
-d[i][j-1]+1\\
-d[i-1][j]+1\\
-\end{cases}
-$$
+![](https://chenbb-1257745007.cos.ap-guangzhou.myqcloud.com/blog/20181204081620.png)
+
+
 
 ------
 
