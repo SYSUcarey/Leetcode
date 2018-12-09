@@ -27,4 +27,5 @@ Leetcode problems solutions.
 ## **Dynamic Programming**
 
 - [Leetcode 72 Edit Distance](https://github.com/SYSUcarey/Leetcode/tree/master/Dynamic_Programming/Leetcode72_Edit_Distance) 
+- [Leetcode 943 Find the Shortest Superstring](https://github.com/SYSUcarey/Leetcode/tree/master/Dynamic_Programming/Leetcode943_Find_the_Shortest_Superstring) 
 
